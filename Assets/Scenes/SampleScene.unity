@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 956236019}
   - component: {fileID: 956236018}
   m_Layer: 0
-  m_Name: LogMotor
+  m_Name: CircleTarget
   m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

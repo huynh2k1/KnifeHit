@@ -9,8 +9,8 @@ public class GameController : MonoBehaviour
 
     public int knifeCount; // Số knife
     [Header("Knife Spawning")]
-    public Vector2 knifeSpawnPos;
-    public GameObject knifePrefab;
+    public Vector2 knifeSpawnPos; //Vị trí spawn knive
+    public GameObject knifePrefab; 
     private void Awake()
     {
         if(instance == null)
@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
         UIController.instance.InitKnifeIcon(knifeCount);
         SpawnKnife();
     }
+    //kiểm tra đã ném hết dao hay chưa
     public void OnSuccessfullKnifeHit()
     {
         if(knifeCount > 0)
@@ -32,15 +33,18 @@ public class GameController : MonoBehaviour
             StartGameOverSequence(true);
         }
     }
+    //Spawn knife
     private void SpawnKnife()
     {
         knifeCount--;
         Instantiate(knifePrefab, knifeSpawnPos, Quaternion.identity);
     }
+
     public void StartGameOverSequence(bool win)
     {
         StartCoroutine("GameOverSequenceCoroutine", win);
     }
+    //kiểm tra xem game đã kết thúc hay chưa
     private IEnumerator GameOverSequenceCoroutine(bool win)
     {
         if(win)
@@ -53,6 +57,7 @@ public class GameController : MonoBehaviour
             UIController.instance.ShowRestartButton();
         }
     }
+    //Restart game
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);

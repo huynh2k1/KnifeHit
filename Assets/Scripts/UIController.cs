@@ -30,6 +30,7 @@ public class UIController : MonoBehaviour
         }
     }
     private int knifeIconIndexToChange = 0;
+    //Update color of icon knifes
     public void DecrementDisplayedKnifeCount()
     {
         panelKnives.GetChild(knifeIconIndexToChange++).GetComponent<Image>().color = usedKnifeIconColor;
